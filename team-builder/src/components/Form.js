@@ -11,7 +11,7 @@ const Form = (props) => {
 
     const newSubmit = e => {
         e.preventDefault()
-         update()
+         submit()
     }
 
     return (
@@ -26,7 +26,7 @@ const Form = (props) => {
      <label>Role:
        <input name='role' type='text' onChange={change} value={formValues.change} placeholder='Role here...'></input>
      </label>
-     <button onClick={change}>
+     <button disabled={!formValues.name || !formValues.email || !formValues.role} onClick={change}>
          Submit
      </button>
      </div>

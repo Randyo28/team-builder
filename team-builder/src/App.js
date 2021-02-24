@@ -9,7 +9,7 @@ function App() {
     {name: 'Lucia', email: 'Lucia@email.com', role: 'Teacher'},
     {name: 'Ronnie', email: 'Ronnie@email.com', role: 'Business-Owner'},
     {name: 'Naomi', email: 'Naomi@email.com', role: 'Guidance-Counselor'},
-    {name: 'Luis', email: 'Luis@email.com', role: 'BackEnd-Devloper'}
+    {name: 'Luis', email: 'Luis@email.com', role: 'BackEnd-Developer'}
   ]
 
   //* Each Input is empty
@@ -33,6 +33,22 @@ function App() {
       })
     }
 
+    const submitNewMember = () => {
+
+      const newMember = {
+        name: formValues.name.trim(),
+        email: formValues.email.trim(),
+        role: formValues.role.trim(),
+      }
+
+      if (!newMember.name || !newMember.email || !newMember.role) {
+        return;
+      }
+
+      setTeamMembers(teamMembers.concat(newMember))
+       setFormValues(initialFormValue)
+    }
+
   return (
     <>
    <div className='container'>
@@ -47,7 +63,7 @@ function App() {
        )
      })}
    </div>
-   <Form formValues={formValues} update={updateForm}/>
+   <Form formValues={formValues} update={updateForm} submit={submitNewMember}/>
    </>
   );
 }
