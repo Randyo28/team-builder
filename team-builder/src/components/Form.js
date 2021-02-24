@@ -1,4 +1,31 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.form`
+    background-color: rgb(75, 36, 216);
+    border: 1px solid rgb(75, 36, 216);
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px -2px #807f7f;
+    padding: 32px;
+    margin-bottom: 24px;
+`
+
+const GroupForm = styled.div`
+  color:white;
+  padding: 30px;
+
+  label{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input{
+    height: 1.5rem;
+    width: 150px;
+    margin: 8px 8px 8px 0;
+    border-radius: 0.4rem;
+  }
+`
 
 const Form = (props) => {
     const {formValues, update, submit} = props;
@@ -15,8 +42,8 @@ const Form = (props) => {
     }
 
     return (
-        <form onSubmit={newSubmit} className='form-container'>
-     <div className='form-group inputs'>
+        <FormContainer onSubmit={newSubmit} >
+     <GroupForm>
      <label>Name:
        <input name='name' type='text' onChange={change} value={formValues.change} placeholder='Name here...'></input>
      </label>
@@ -29,8 +56,8 @@ const Form = (props) => {
      <button disabled={!formValues.name || !formValues.email || !formValues.role} onClick={change}>
          Submit
      </button>
-     </div>
-   </form>
+     </GroupForm>
+   </FormContainer>
     );
 };
 
