@@ -18,8 +18,9 @@ const ContainerDiv = styled.div`
 `
 const TeamDiv = styled.div`
   margin: 0px 30px;
-  padding: 0px 0;
-  width: 90%;
+    padding: 5px 10px;
+    width: 90%;
+    border: 1px solid black;
 `
 
 function App() {
@@ -36,16 +37,16 @@ function App() {
   const initialFormValue = {
     name: '',
     email: '',
-    role: ''
+    role: '',
   }
 
   //* TeamMembers Array useState
     const [teamMembers, setTeamMembers] = useState(team)
 
-  //* Forms  starting empty
-    const[formValues, setFormValues] = useState(initialFormValue)
+  //* Forms starting empty
+    const [formValues, setFormValues] = useState(initialFormValue)
 
-
+  //* Set formValues with a new team Member array with the new inputed info
     const updateForm = (name, value) => {
       setFormValues({
         ...formValues,
@@ -65,15 +66,17 @@ function App() {
         return;
       }
 
-      setTeamMembers(teamMembers.concat(newMember))
-       setFormValues(initialFormValue)
+      setTeamMembers(teamMembers.concat(newMember));
+       setFormValues(initialFormValue);
     }
 
   return (
     <>
    <ContainerDiv>
      <h1>Team-Builder</h1>
+
      <Form formValues={formValues} update={updateForm} submit={submitNewMember}/>
+
      {teamMembers.map((members, idx) => {
        return (
          <TeamDiv key={idx}>

@@ -37,6 +37,7 @@ const Form = (props) => {
       }
 
     const newSubmit = e => {
+        debugger;
         e.preventDefault()
          submit()
     }
@@ -45,15 +46,15 @@ const Form = (props) => {
         <FormContainer onSubmit={newSubmit} >
      <GroupForm>
      <label>Name:
-       <input name='name' type='text' onChange={change} value={formValues.change} placeholder='Name here...'></input>
+       <input name='name' type='text' onChange={change} value={formValues.name} placeholder='Name here...'/>
      </label>
      <label>Email:
-       <input name='email' type='text' onChange={change} value={formValues.change} placeholder='Email here...'></input>
+       <input name='email' type='text' onChange={change} value={formValues.email} placeholder='Email here...'/>
      </label>
      <label>Role:
-       <input name='role' type='text' onChange={change} value={formValues.change} placeholder='Role here...'></input>
+       <input name='role' type='text' onChange={change} value={formValues.role} placeholder='Role here...'/>
      </label>
-     <button disabled={!formValues.name || !formValues.email || !formValues.role} onClick={change}>
+     <button disabled={!formValues.name || !formValues.email || !formValues.role} >
          Submit
      </button>
      </GroupForm>
